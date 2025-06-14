@@ -17,28 +17,25 @@ This will give you practice in designing classes, writing clean APIs, and handli
 1. **`TextProcessor` class**  
    - **Initialization**  
      ```python
-     def __init__(self, text: str, punctuation: Optional[Iterable[str]] = None):
-         """
-         :param text: raw input string
-         :param punctuation: iterable of punctuation chars to strip (defaults to . , ? ! ; : " ' ( ) [ ] - )
-         """
+     def __init__(self, text: str, punctuation: str | None = None):
+        pass
      ```
    - **Methods**  
      - `normalize() -> str`  
        Convert to lowercase, strip leading/trailing whitespace.
      - `remove_punctuation(text: str) -> str`  
        Remove _all_ characters in `self.punctuation`.
-     - `tokenize(text: str) -> List[str]`  
+     - `tokenize(text: str) -> list[str]`  
        Split on whitespace (collapse multiple spaces).
-     - `count_frequencies(tokens: List[str]) -> Dict[str, int]`  
+     - `count_frequencies(tokens: list[str]) -> dict[str, int]`  
        Build a word→count mapping.
-     - `get_top_n(counts: Dict[str,int], n: Optional[int] = None) -> List[Tuple[str,int]]`  
+     - `get_top_n(counts: dict[str,int], n: int | None = None) -> list[tuple[str,int]]`  
        Return a list of `(word, count)` sorted by descending count. If `n` is given, return only the top _n_.
 
 2. **`Solution` class**  
    - Method signature:
      ```python
-     def word_frequency_counter(self, text: str, top_n: Optional[int] = None) -> List[Tuple[str,int]]:
+     def word_frequency_counter(self, text: str, top_n: int | None = None) -> list[tuple[str,int]]:
          """
          Returns the list of (word, count) sorted by count desc.
          If top_n is provided, returns only the top N words.

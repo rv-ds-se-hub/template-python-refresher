@@ -4,8 +4,9 @@ from typing import Iterable
 class TextProcessor:
     def __init__(self, text: str, punctuation: Iterable[str] | None = None):
         """
-        :param text: Raw input text to process.
-        :param punctuation: Iterable of punctuation characters to remove.
+        Args:
+            text: Raw input text to process.
+            punctuation: Iterable of punctuation characters to remove.
         """
         self.text = text
         # Default punctuation set if none provided
@@ -49,8 +50,6 @@ class Solution:
     ) -> list[tuple[str, int]]:
         """
         Main entry point.
-        :param text: Raw text to analyze.
-        :param top_n: Number of top words to return (None = all).
         """
         processor = TextProcessor(text)
         cleaned = processor.normalize()
