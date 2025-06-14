@@ -17,7 +17,7 @@ This will give you practice in designing classes, writing clean APIs, and handli
 1. **`TextProcessor` class**  
    - **Initialization**  
      ```python
-     def __init__(self, text: str, punctuation: str | None = None):
+     def __init__(self, punctuation: str | None = None, stop_words: Iterable[str] | None = None):
         pass
      ```
    - **Methods**  
@@ -27,6 +27,8 @@ This will give you practice in designing classes, writing clean APIs, and handli
        Remove _all_ characters in `self.punctuation`.
      - `tokenize(text: str) -> list[str]`  
        Split on whitespace (collapse multiple spaces).
+     - `remove_stop_words(tokens: list[str]) -> str`  
+       Remove stop words from the text (tokens).
      - `count_frequencies(tokens: list[str]) -> dict[str, int]`  
        Build a word→count mapping.
      - `get_top_n(counts: dict[str,int], n: int | None = None) -> list[tuple[str,int]]`  
@@ -35,11 +37,7 @@ This will give you practice in designing classes, writing clean APIs, and handli
 2. **`Solution` class**  
    - Method signature:
      ```python
-     def word_frequency_counter(self, text: str, top_n: int | None = None) -> list[tuple[str,int]]:
-         """
-         Returns the list of (word, count) sorted by count desc.
-         If top_n is provided, returns only the top N words.
-         """
+        def word_frequency_counter(self, text: str, top_n: int | None = None) -> list[tuple[str, int]]:
      ```
    - Should instantiate `TextProcessor` and chain its methods.
 
@@ -47,9 +45,10 @@ This will give you practice in designing classes, writing clean APIs, and handli
    - Empty or whitespace-only input
    - Text with no alphanumeric characters
    - Very large text inputs (efficiency matters)
+   - Text with hyphens.
 
 4. **Code Quality**  
-   - PEP8-compliant, descriptive docstrings
+   - PEP8-compliant (use ruff), descriptive docstrings
    - Meaningful variable names
    - No global variables
    - Each class/method does one thing
