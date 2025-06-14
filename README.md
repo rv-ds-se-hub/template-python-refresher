@@ -5,10 +5,11 @@ Build a reusable, object-oriented text processing pipeline that can:
 1. Normalize text
 2. Remove configurable punctuation
 3. Tokenize into words
+4. Filters stop words
 4. Count word frequencies
 5. Extract the top _n_ most common words (or all words if _n_ is omitted)
 
-This will give you practice in designing classes, writing clean APIs, and handling edge cases beyond a simple script.
+This will give you practice in designing classes, writing clean code, and handling edge cases beyond a simple script.
 
 ---
 
